@@ -10,6 +10,9 @@ func main(){
 	fmt.Println(a, err)
 	b, err := calc(1)
 	fmt.Println(b, err)
+	if err!=nil{
+		fmt.Println("Handled Error")
+	}
 }
 func calc(n int)(int,error){
 	if n==0{
