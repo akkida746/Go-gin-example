@@ -9,4 +9,7 @@ func main() {
 	fmt.Println(x)
 	y := 12 // decalre variable
 	fmt.Println(y)
+
+	const a = 10
+	fmt.Println(a)
 }
