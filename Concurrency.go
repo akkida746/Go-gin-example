@@ -13,9 +13,10 @@ func main() {
 		wg.Done()
 	}()
 	go func(){
+		defer wg.Done() // defer will be executed at last in function
 		fmt.Println("Second worker")
 		time.Sleep(time.Millisecond*1000)
-		wg.Done()
+		//wg.Done()
 	}()
 	wg.Wait()
 	fmt.Println("Completed")
