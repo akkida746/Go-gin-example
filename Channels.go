@@ -7,18 +7,23 @@ func main(){
 	wg.Add(2)
 	ch := make(chan int)
 	go func(){
-		for i:=1;i<5;i++{
+		for i:=0;i<3;i++{
 			ch <- i
-			time.Sleep(time.Millisecond * 1000)
 		}	
 		wg.Done()
+		close(ch)
 	}()
 
 	go func(){
-		for i:=1;i<5;i++{
-			a := <- ch
+		// while loop
+		for true{
+			a,isOpen := <-ch // Taking data from channel and checking if channel is not closed.
+			if !isOpen{
+				break
+			}
 			fmt.Println(a)
-		}	
+				time.Sleep(time.Millisecond * 1000)
+		}
 		wg.Done()
 	}()
 
