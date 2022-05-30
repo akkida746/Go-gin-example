@@ -6,9 +6,7 @@ func main(){
 	wg := sync.WaitGroup{}
 	wg.Add(2)
 	ch := make(chan int)
-	a := 1
 	go func(){
-		fmt.Println(a)
 		for i:=0;i<3;i++{
 			ch <- i
 		}	
