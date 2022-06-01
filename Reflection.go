@@ -1,5 +1,9 @@
 package main
-import ("fmt")
+
+import (
+	"fmt"
+	"reflect"
+)
 
 func main(){
 	type Foo struct{
@@ -8,6 +12,6 @@ func main(){
 
 	var x Foo
 	x.name = "Akash"
-
 	fmt.Println(x.name)
+	fmt.Println(reflect.TypeOf(x))
 }
